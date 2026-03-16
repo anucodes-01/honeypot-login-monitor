@@ -1,9 +1,11 @@
+from database import create_database, insert_log
 from flask import Flask, render_template, request
 from datetime import datetime
-import csv
-import time
+
 
 app = Flask(__name__)
+
+create_database()
 
 # Route to display fake login page
 @app.route("/")
@@ -28,10 +30,7 @@ def login():
     print("Browser:", user_agent)
     print("Time:", timestamp)
 
-    # Save attack data to CSV file
-    with open("attack_logs.csv", "a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([ip_address, username, password, timestamp, user_agent])
+   
 
     # Small delay to simulate real authentication
     time.sleep(2)

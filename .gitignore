@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+honeypot.db
+attack_logs.csv
