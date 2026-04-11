@@ -14,7 +14,9 @@ def create_database():
         username TEXT,
         password TEXT,
         timestamp TEXT,
-        user_agent TEXT
+        user_agent TEXT,
+        risk_level TEXT,
+        attack_type TEXT
     )
     """)
 
@@ -22,7 +24,7 @@ def create_database():
     conn.close()
 
 
-def insert_log(ip, username, password, timestamp, user_agent):
+def insert_log(ip, username, password, timestamp, user_agent, risk, attack_type):
 
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
